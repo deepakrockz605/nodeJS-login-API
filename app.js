@@ -33,12 +33,12 @@ app.use((req, res, next) => {
 });
 
 // Routes which should handle requests
-app.use("/products", productRoutes);
-app.use("/orders", orderRoutes);
+// app.use("/products", productRoutes);
+// app.use("/orders", orderRoutes);
 app.use("/user", userRoutes);
 
 app.use((req, res, next) => {
-  const error = new Error("Not found");
+  const error = new Error("Page Not found");
   error.status = 404;
   next(error);
 });
