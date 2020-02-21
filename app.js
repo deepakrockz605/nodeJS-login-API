@@ -3,10 +3,13 @@ const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+var sslRedirect = require('heroku-ssl-redirect');
 
 const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
 const userRoutes = require("./api/routes/user");
+
+app.use(sslRedirect());
 
 mongoose.connect("mongodb://heroku_sz4sjk06:73h5368h1grd0fq4mpc3bc1elt@ds159200.mlab.com:59200/heroku_sz4sjk06",{useNewUrlParser: true,useUnifiedTopology: true})
   .then(console.log('Mongo DB Connected'))
